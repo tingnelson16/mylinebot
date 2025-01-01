@@ -76,6 +76,14 @@ def index(request):
                 return HttpResponseForbidden()
             except LineBotApiError:
                 return HttpResponseBadRequest()
+            
+                # 馬上回應200
+                for event in events:
+                    if isinstance(event, MessageEvent):
+                        handle_message_event(event)
+                return HttpResponse()  # 避免超時，先回應成功
+            else:
+                return HttpResponseBadRequest()
 
             for event in events:
 
