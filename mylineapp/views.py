@@ -94,42 +94,6 @@ def index(request):
                         [StickerSendMessage(package_id = stkpkg, sticker_id=stkid),
                         TextSendMessage( text = replymsg )])
 
-                    elif txtmsg == "今天誰最帥":
-                        names = ['1113212047 (曾宏仁)', '1112204048 (林宗諺)','1113211030 (黃冠森)',
-                                '1113211006 (陳有信)','1110304012 (林彥庭)']
-                        replymsg = "今天最帥的是:" + random.choice(names)
-
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage( text = replymsg ))
-
-                    elif txtmsg == "今天誰最美":
-                        names = ['1111211008 (呂婕瑀)','1112211014 (蘇育卉)','1109302041 (李俞廷)',
-                                '1109302049 (陳禹彤)','1112211042 (潘欣慧)','1110302034 (王新霏)',
-                                '1110302038 (林潁俞)','1109300092 (潘妍華)','1112224017 (郭季惠)',
-                                '1109302030 (黃雅旋)','1111211010 (褚芸榕)','1112203020 (陳瑪莘)',
-                                '1112200110 (蘇怡嘉)','1110210048 (苗琇雯)']
-
-                        replymsg = "今天最美的是:" + random.choice(names)
-
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage( text = replymsg ))
-
-                    elif txtmsg.startswith("今天誰最"):
-                        names = ['1113212047 (曾宏仁)', '1112204048 (林宗諺)','1113211030 (黃冠森)',
-                                '1113211006 (陳有信)','1110304012 (林彥庭)','1111211008 (呂婕瑀)','1112211014 (蘇育卉)','1109302041 (李俞廷)',
-                                '1109302049 (陳禹彤)','1112211042 (潘欣慧)','1110302034 (王新霏)',
-                                '1110302038 (林潁俞)','1109300092 (潘妍華)','1112224017 (郭季惠)',
-                                '1109302030 (黃雅旋)','1111211010 (褚芸榕)','1112203020 (陳瑪莘)',
-                                '1112200110 (蘇怡嘉)','1110210048 (苗琇雯)']
-
-                        replymsg = "今天最" + txtmsg[4:] +"的是:"+ random.choice(names)
-
-                        line_bot_api.reply_message(
-                            event.reply_token,
-                            TextSendMessage( text = replymsg ))
-
                     elif txtmsg in ["龍山寺求籤","求籤","龍山寺拜拜"]:
 
                         num = random.choice(range(1,101))
